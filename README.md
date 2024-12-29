@@ -1,3 +1,5 @@
+Creado por: Josue Zambrano
+
 # Instrucciones de Ejecución
 
 Este proyecto es una aplicación web de Biblioteca Musical que permite:
@@ -42,9 +44,6 @@ await mongoose.connect("mongodb://localhost:27017/music", {
 ```bash
 npm run dev
 ```
-*(Asumiendo que en tu `package.json` tienes `"dev": "nodemon server.js"`.  
-Si no, ejecuta `node server.js` manualmente.)*
-
 Si todo va bien, verás un mensaje tipo “Server is up” en la consola, indicando que el servidor Express corre en el puerto **3000**.
 
 ### 5. Abrir el frontend
