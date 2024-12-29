@@ -234,6 +234,13 @@ function mostrarPopupEdicion(cancion) {
       return;
     }
 
+    let youtubePattern =
+      /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/).+$/;
+    if (!youtubePattern.test(editURL)) {
+      alert("Por favor ingresa una URL válida de YouTube");
+      return;
+    }
+
     // PUT /canciones/:id
     try {
       let response = await fetch(
@@ -318,7 +325,9 @@ async function mostrarPopupComentarios(cancion) {
 
   try {
     // Obtener la lista de comentarios
-    let response = await fetch(`http://localhost:3000/canciones/${cancion._id}/comentarios`);
+    let response = await fetch(
+      `http://localhost:3000/canciones/${cancion._id}/comentarios`
+    );
     if (!response.ok) {
       console.error("Error al obtener comentarios:", response.status);
       return;
@@ -326,23 +335,29 @@ async function mostrarPopupComentarios(cancion) {
     let comentarios = await response.json(); // Array de comentarios
 
     // Generar HTML para la lista
-    let comentariosHTML = comentarios.map(com => {
-      // Fecha en formato local
-      let fecha = new Date(com.fecha).toLocaleString();
-      return `
+    let comentariosHTML = comentarios
+      .map((com) => {
+        // Fecha en formato local
+        let fecha = new Date(com.fecha).toLocaleString();
+        return `
         <div class="comentario-item">
           <strong>${com.nombre}</strong> <small>(${fecha})</small>
           <p>${com.texto}</p>
         </div>
       `;
-    }).join("");
+      })
+      .join("");
 
     overlay.innerHTML = `
       <div class="popup-content">
         <h3>Comentarios de: ${cancion.nombre}</h3>
 
         <div class="comments-list">
-          ${comentarios.length > 0 ? comentariosHTML : "<p>No hay comentarios aún.</p>"}
+          ${
+            comentarios.length > 0
+              ? comentariosHTML
+              : "<p>No hay comentarios aún.</p>"
+          }
         </div>
 
         <!-- Botón para mostrar el form de añadir comentario -->
@@ -357,11 +372,12 @@ async function mostrarPopupComentarios(cancion) {
       mostrarFormComentario(cancion);
     });
 
-    document.getElementById("closeCommentsBtn").addEventListener("click", () => {
-      overlay.classList.add("hidden");
-      overlay.innerHTML = "";
-    });
-
+    document
+      .getElementById("closeCommentsBtn")
+      .addEventListener("click", () => {
+        overlay.classList.add("hidden");
+        overlay.innerHTML = "";
+      });
   } catch (error) {
     console.error("Error de conexión:", error);
   }
@@ -388,32 +404,37 @@ function mostrarFormComentario(cancion) {
     </div>
   `;
 
-  document.getElementById("saveCommentBtn").addEventListener("click", async () => {
-    let nombre = document.getElementById("comentName").value.trim();
-    let texto = document.getElementById("comentText").value.trim();
-    if (!nombre || !texto) {
-      alert("Por favor llena tu nombre y el comentario");
-      return;
-    }
-
-    try {
-      let response = await fetch(`http://localhost:3000/canciones/${cancion._id}/comentarios`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, texto })
-      });
-      if (response.ok) {
-        // Se agregó el comentario
-        alert("Comentario agregado");
-        // Volver a mostrar la lista de comentarios
-        mostrarPopupComentarios(cancion);
-      } else {
-        alert("Error al agregar comentario");
+  document
+    .getElementById("saveCommentBtn")
+    .addEventListener("click", async () => {
+      let nombre = document.getElementById("comentName").value.trim();
+      let texto = document.getElementById("comentText").value.trim();
+      if (!nombre || !texto) {
+        alert("Por favor llena tu nombre y el comentario");
+        return;
       }
-    } catch (error) {
-      console.error("Error de conexión:", error);
-    }
-  });
+
+      try {
+        let response = await fetch(
+          `http://localhost:3000/canciones/${cancion._id}/comentarios`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nombre, texto }),
+          }
+        );
+        if (response.ok) {
+          // Se agregó el comentario
+          alert("Comentario agregado");
+          // Volver a mostrar la lista de comentarios
+          mostrarPopupComentarios(cancion);
+        } else {
+          alert("Error al agregar comentario");
+        }
+      } catch (error) {
+        console.error("Error de conexión:", error);
+      }
+    });
 
   document.getElementById("cancelCommentBtn").addEventListener("click", () => {
     // Volvemos a la lista de comentarios
