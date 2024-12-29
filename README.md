@@ -1,4 +1,3 @@
-```md
 # Instrucciones de Ejecución
 
 Este proyecto es una aplicación web de Biblioteca Musical que permite:
