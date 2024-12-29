@@ -1,0 +1,416 @@
+/* --------- RESET BÁSICO --------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --------- BODY --------- */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+/* --------- HEADER IMAGEN --------- */
+.header-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.header-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------- NAV --------- */
+nav {
+  background-color: #222;
+  padding: 0.5rem 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav ul li a:hover {
+  color: #2196f3;
+}
+
+/* --------- CONTENEDOR DE INICIO --------- */
+.home-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.home-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.home-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* --------- CONTENEDOR DE LA LISTA --------- */
+.song-list-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.song-list-container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.song-list-container h3 {
+  margin-bottom: 2rem;
+}
+
+.song-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 2 columnas: (1) info, (2) votos */
+  align-items: center;
+  column-gap: 1rem;
+  background-color: #2c2c2c;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.song-item:hover {
+  background-color: #3a3a3a;
+  transition: background-color 0.3s;
+}
+
+/* Primera columna que agrupa lápiz + info */
+.song-first-column {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Lápiz a la izquierda */
+.song-left-section {
+  display: flex;
+  align-items: center;
+}
+
+.pencil-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  object-fit: cover;
+  margin-right: 0.5rem;
+}
+
+.song-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.song-text h2 {
+  margin-bottom: 0.25rem;
+}
+
+/* Ícono de YouTube */
+.youtube-link {
+  margin-left: 0;
+}
+
+.youtube-link img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.youtube-link img:hover {
+  filter: brightness(1.2);
+}
+
+/* Sección de Votos (segunda columna) */
+.vote-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: end;
+}
+
+.vote-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.vote-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.vote-button:hover img {
+  filter: brightness(1.2);
+}
+
+.vote-count {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* --------- CONTENEDOR DE AGREGAR CANCIÓN --------- */
+.add-song-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.add-song-container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.add-song-container h3 {
+  margin-bottom: 2rem;
+}
+
+.add-song-container input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #2c2c2c;
+  color: #ffffff;
+}
+
+.add-song-container input::placeholder {
+  color: #c2c2c2;
+}
+
+.add-song-container button {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #2196f3;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.add-song-container button:hover {
+  background-color: #1976d2;
+}
+
+/* --------- CANCIÓN ALEATORIA --------- */
+.random-song-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;              
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.random-song-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.random-song-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.random-song-btn:hover {
+  background-color: #1976d2;
+}
+
+.random-song-container {
+  max-width: 400px;     
+  margin: 2rem auto 0;
+  background-color: #2c2c2c;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.random-song-container h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.random-song-container a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.random-song-container a:hover {
+  text-decoration: underline;
+}
+
+/* --------- POPUP EDITAR O ELIMINAR --------- */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.popup-content {
+  background-color: #2c2c2c;
+  padding: 2rem;
+  border-radius: 8px;
+  min-width: 500px;
+  max-width: 700px;
+}
+
+.popup-content h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.popup-options {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.popup-btn {
+  background: #2196f3;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.popup-btn:hover {
+  background: #1976d2;
+}
+
+#editarBtn {
+  background: #369261;
+}
+
+#editarBtn:hover {
+  background: #2e7d54;
+}
+
+#eliminarBtn {
+  background: #f44336;
+}
+
+#eliminarBtn:hover {
+  background: #d32f2f;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.form-group input, .form-group textarea  {
+  padding: 0.5rem;
+  border: 1px solid #555;;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+/* --------- COMENTARIOS --------- */
+.comments-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.comments-icon:hover {
+  filter: brightness(1.2);
+}
+
+.comments-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+.comentario-item {
+  background-color: #1f1f1f;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+.comentario-item p {
+  margin: 0.25rem 0 0;
+}
+
+textarea#comentText {
+  resize: vertical;
+}

@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./script.js" defer></script>
-</head>
-<body>
-    <input type="text" id="nombre" placeholder="Nombre de la cación">
-    <input type="text" id="artista" placeholder="Artista de la cación">
-    <input type="text" id="url" placeholder="URL video de la cación">
-    <button id="save" type="submit">Guardar canción</button>
-</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inicio - Biblioteca Musical</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-image-container">
+        <img src="./images/header.png" alt="Imagen de encabezado" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./songList.html">Lista de canciones</a></li>
+          <li><a href="./addSong.html">Agregar canciones</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="home-container">
+      <h1>¡Bienvenido/a!</h1>
+      <p>
+        Este es un sitio web en el que puedes guardar tus canciones preferidas,
+        votar junto a la comunidad por las que más te gusten y mucho más.
+      </p>
+      <p>Creado por: <strong>Josue Zambrano</strong></p>
+    </main>
+    <section class="random-song-section">
+      <h2>Canción aleatoria</h2>
+      <button id="randomSongBtn" class="random-song-btn">Obtener canción aleatoria</button>
+      <div id="randomSongContainer" class="random-song-container"></div>
+    </section>  
+
+  </body>
 </html>

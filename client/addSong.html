@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agregar Canciones</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./scripts/addSong.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-image-container">
+        <img src="./images/header.png" alt="Imagen de encabezado" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./songList.html">Lista de canciones</a></li>
+          <li><a href="./addSong.html">Agregar canciones</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="add-song-container">
+      <h1>Agregar Nueva Canción</h1>
+      <h3>¡Registra tu canción preferida en la base de datos!</h3>
+      <input type="text" id="nombre" placeholder="Nombre de la canción" />
+      <input type="text" id="artista" placeholder="Artista de la canción" />
+      <input type="text" id="url" placeholder="URL del video de la canción" />
+      <button id="save" type="submit">Guardar canción</button>
+    </main>
+  </body>
+</html>

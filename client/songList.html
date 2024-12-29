@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Canciones</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./scripts/songList.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-image-container">
+        <img src="./images/header.png" alt="Imagen de encabezado" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Inicio</a></li>
+          <li><a href="./songList.html">Lista de canciones</a></li>
+          <li><a href="./addSong.html">Agregar canciones</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="song-list-container">
+      <h1>Lista de Canciones</h1>
+      <h3>¡Vota y comenta en tus canciones preferidas!</h3>
+      <div id="songsContainer"></div>
+    </main>
+
+    <div id="popupOverlay" class="popup-overlay hidden"></div>
+  </body>
+</html>
